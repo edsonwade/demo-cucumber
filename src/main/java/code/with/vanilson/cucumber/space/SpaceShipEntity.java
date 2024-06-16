@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * SpaceShipEntity
@@ -18,6 +19,7 @@ import javax.persistence.Id;
  */
 @Entity
 @Data
+@Table(name = "space_ship_entity")
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor

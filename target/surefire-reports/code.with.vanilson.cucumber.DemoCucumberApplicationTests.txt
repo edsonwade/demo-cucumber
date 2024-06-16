@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: code.with.vanilson.cucumber.DemoCucumberApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.909 s - in code.with.vanilson.cucumber.DemoCucumberApplicationTests

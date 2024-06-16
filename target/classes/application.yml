@@ -1,22 +1,20 @@
-spring:
-  application:
-    name: demo-cucumber
-server:
-  port: 8081
-
-  spring:
-    datasource:
-      url: jdbc:postgresql://localhost:5432/cucumber_db
-      username: "${POSTGRES_USERNAME}"
-      password: "${POSTGRES_PASSWORD}"
-      driver-class-name: org.postgresql.Driver
-
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
-      hibernate:
-        ddl-auto: none
-        format_sql: true
-        show-sql: true
-      database: postgresql
+#spring:
+#  application:
+#    name: demo-cucumber
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/cucumber_db
+#    username: "${POSTGRES_USERNAME}"
+#    password: "${POSTGRES_PASSWORD}"
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    hibernate:
+#      ddl-auto: update
+#      format_sql: true
+#      show-sql: true
+#    database: postgresql
+#
+#server:
+#  port: 8081
