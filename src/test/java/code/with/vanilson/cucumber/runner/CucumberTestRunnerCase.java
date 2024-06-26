@@ -1,7 +1,7 @@
 package code.with.vanilson.cucumber.runner;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+
+import io.cucumber.junit.platform.engine.Cucumber;
+
 /**
  * CucumberTestRunnerCase
  *
@@ -10,12 +10,16 @@ import org.junit.runner.RunWith;
  * @since 2024-06-16
  */
 
-@SuppressWarnings("NewClassNamingConvention")
-@RunWith(Cucumber.class)
-@CucumberOptions(
-        features = {"src/test/resources/features"},
-        plugin = {"pretty"},
-        glue = {"code.with.vanilson.cucumber.glue"},
-        tags = "not @ignore_product_management")
+import org.junit.platform.suite.api.*;
+
+import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
+import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
+
+@Suite
+@SelectClasspathResource("features")  // Adjust this package name as necessary
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "code.with.vanilson.cucumber.steps")
+@IncludeEngines("cucumber")
+
 public class CucumberTestRunnerCase {
 }
