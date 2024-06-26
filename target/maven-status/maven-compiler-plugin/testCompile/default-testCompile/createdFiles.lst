@@ -1,4 +1,0 @@
-code\with\vanilson\cucumber\runner\ProductRunnerTest.class
-code\with\vanilson\cucumber\runner\ProductRunnerWithH2Test.class
-code\with\vanilson\cucumber\steps\product\ProductControllerSteps.class
-code\with\vanilson\cucumber\config\CucumberSpringConfiguration.class
