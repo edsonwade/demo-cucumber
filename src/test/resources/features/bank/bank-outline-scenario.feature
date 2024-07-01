@@ -1,5 +1,6 @@
+@balance-check
 Feature: Bank Check Balance Using Outline Scenario
-
+  @deposit @example
   Scenario Outline: Checking Account Balance after Deposit
     Given my checking account has balance of $<balance>
     And I have recently made a deposit of $<deposit>
@@ -13,6 +14,6 @@ Feature: Bank Check Balance Using Outline Scenario
       | 1000    | 200     | 1200            | 30  | 1170                      |
       | 2000    | 500     | 2500            | 100 | 2400                      |
 
-
+    @csv
     Scenario: Checking Account Balance after Deposit CSV
       Given I have following account details from CSV file "data/testdata.csv"
