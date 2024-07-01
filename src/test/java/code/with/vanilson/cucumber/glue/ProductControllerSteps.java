@@ -1,4 +1,4 @@
-package code.with.vanilson.cucumber.steps.product;
+package code.with.vanilson.cucumber.glue;
 
 /**
  * ProductControllerSteps
@@ -8,7 +8,6 @@ package code.with.vanilson.cucumber.steps.product;
  * @since 2024-06-16
  */
 
-import code.with.vanilson.cucumber.config.CucumberSpringConfiguration;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,8 +20,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.annotation.Rollback;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @DataJpaTest
-public class ProductControllerSteps extends CucumberSpringConfiguration {
+public class ProductControllerSteps {
 
     private final TestRestTemplate restTemplate = new TestRestTemplate();
 
@@ -42,7 +42,7 @@ public class ProductControllerSteps extends CucumberSpringConfiguration {
 
     @Then("I should receive a list of products")
     public void i_should_receive_a_list_of_products() {
-        assertEquals(200, lastResponse.getStatusCodeValue());
+        assertEquals(200, lastResponse.getStatusCode().value());
     }
 
     @Given("the product with ID {int} exists")
@@ -62,7 +62,7 @@ public class ProductControllerSteps extends CucumberSpringConfiguration {
 
     @Then("I should receive the product details")
     public void i_should_receive_the_product_details() {
-        assertEquals(200, lastResponse.getStatusCodeValue());
+        assertEquals(200, lastResponse.getStatusCode().value());
     }
 
     @Given("I have a new product with name {string}, quantity {int} and price {double}")
@@ -82,7 +82,7 @@ public class ProductControllerSteps extends CucumberSpringConfiguration {
 
     @Then("the product should be created")
     public void the_product_should_be_created() {
-        assertEquals(201, lastResponse.getStatusCodeValue());
+        assertEquals(201, lastResponse.getStatusCode().value());
     }
 
     @When("I update the product with ID {int} with new name {string}, quantity {int} and price {double}")
@@ -97,7 +97,7 @@ public class ProductControllerSteps extends CucumberSpringConfiguration {
 
     @Then("the product should be updated")
     public void the_product_should_be_updated() {
-        assertEquals(200, lastResponse.getStatusCodeValue());
+        assertEquals(200, lastResponse.getStatusCode().value());
     }
 
     @When("I delete the product with ID {int}")
@@ -105,10 +105,11 @@ public class ProductControllerSteps extends CucumberSpringConfiguration {
         String url = baseUrl + "/products/delete-product/" + id;
         lastResponse = restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
     }
+
     @Rollback(false)
     @Then("the product should be deleted")
     public void the_product_should_be_deleted() {
-        assertEquals(204, lastResponse.getStatusCodeValue());
+        assertEquals(204, lastResponse.getStatusCode().value());
     }
 
 }

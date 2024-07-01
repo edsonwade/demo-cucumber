@@ -1,0 +1,7 @@
+code\with\vanilson\cucumber\runner\CucumberRunnerTest.class
+code\with\vanilson\cucumber\glue\CucumberAlienSteps.class
+code\with\vanilson\cucumber\glue\BankStepdefs.class
+code\with\vanilson\cucumber\glue\CucumberMySteps.class
+code\with\vanilson\cucumber\glue\ProductControllerSteps.class
+code\with\vanilson\cucumber\config\CucumberSpringConfiguration.class
+code\with\vanilson\cucumber\glue\GreetingStepdefs.class

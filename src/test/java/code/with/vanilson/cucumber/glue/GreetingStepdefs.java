@@ -14,7 +14,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @version 1.0
  * @since 2024-06-16
  */
-@SpringBootTest
 public class GreetingStepdefs {
     private String name = "not set";
     private String greeting = "not set";
