@@ -6,9 +6,7 @@ import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.jupiter.api.Assertions;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +26,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * @version 1.0
  * @since 2024-06-16
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@CucumberContextConfiguration
 public class CucumberMySteps {
     @LocalServerPort
     String port;
@@ -50,7 +46,7 @@ public class CucumberMySteps {
         Assertions.assertNotNull(lastResponse);
         Assertions.assertNotNull(lastResponse.getStatusCode());
         assertThat("status code is" + expected,
-                lastResponse.getStatusCodeValue() == expected);
+                lastResponse.getStatusCode().value() == expected);
     }
 
     @Then("response status code is not present")

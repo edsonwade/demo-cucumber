@@ -1,10 +1,11 @@
 package code.with.vanilson.cucumber.space.alien;
 
+import jakarta.persistence.PrePersist;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.PrePersist;
+
 /**
  * WeightIncreaseEntityListener
  *

@@ -1,9 +1,7 @@
 package code.with.vanilson.cucumber.runner;
 
-import io.cucumber.junit.platform.engine.Cucumber;
-
 /**
- * CucumberTestRunnerCase
+ * CucumberRunnerTest
  *
  * @author vamuhong
  * @version 1.0
@@ -18,8 +16,8 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @Suite
 @SelectClasspathResource("features")  // Adjust this package name as necessary
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "code.with.vanilson.cucumber.steps")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "code.with.vanilson.cucumber")
 @IncludeEngines("cucumber")
 
-public class CucumberTestRunnerCase {
+public class CucumberRunnerTest {
 }

@@ -1,9 +1,10 @@
 package code.with.vanilson.cucumber.space.alien;
 
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
+
 import java.math.BigDecimal;
 import java.util.List;
 

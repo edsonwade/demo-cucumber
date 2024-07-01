@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: code.with.vanilson.cucumber.runner.CucumberRunnerTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 76.12 s -- in code.with.vanilson.cucumber.runner.CucumberRunnerTest
