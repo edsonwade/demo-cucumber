@@ -8,7 +8,6 @@ package code.with.vanilson.cucumber.config;
  * @since 2024-06-16
  */
 
-import code.with.vanilson.cucumber.DemoCucumberApplication;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
