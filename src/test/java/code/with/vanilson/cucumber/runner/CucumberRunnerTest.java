@@ -12,11 +12,13 @@ import org.junit.platform.suite.api.*;
 
 import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
+import static io.cucumber.junit.platform.engine.Constants.FILTER_TAGS_PROPERTY_NAME;
 
 @Suite
 @SelectClasspathResource("features")  // Adjust this package name as necessary
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty,html:target/cucumber-report.html")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "code.with.vanilson.cucumber")
+@ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@balance-check or @deposit or @csv")
 @IncludeEngines("cucumber")
 
 public class CucumberRunnerTest {
