@@ -2,6 +2,7 @@ package code.with.vanilson.cucumber.glue;
 
 import io.cucumber.java.en.*;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Before;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -20,7 +21,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 public class BankStepdefs {
     private int checkingAccountBalance;
-    private int availableBalance;
     private int depositAmount;
     private int actualBalance;
     private int overDraftFee;
@@ -57,6 +57,7 @@ public class BankStepdefs {
 
     @And("the available balances should be ${int}")
     public void theAvailableBalancesShouldBe$(int expectedAvailableBalances) {
+        int availableBalance;
         if (withdrawalAmount > 0 &&
                 withdrawalAmount > checkingAccountBalance + depositAmount + creditInterest - overDraftFee) {
             availableBalance =
@@ -123,5 +124,14 @@ public class BankStepdefs {
         } catch (IOException e) {
             log.error("file not found {}", e.getMessage());
         }
+    }
+
+    /**
+     * execute before each scenario
+     */
+    @Before
+    public void before() {
+        log.info("*** Before Scenario");
+        System.out.println("*** Before Scenario\"");
     }
 }
