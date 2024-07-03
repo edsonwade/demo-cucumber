@@ -16,7 +16,8 @@ import static io.cucumber.junit.platform.engine.Constants.FILTER_TAGS_PROPERTY_N
 
 @Suite
 @SelectClasspathResource("features")  // Adjust this package name as necessary
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty,html:target/cucumber-report.html, json:target/cucumber-report.json")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty,html:target/cucumber-report.html, " +
+        "json:target/cucumber-report.json,usage:target/usage.json")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "code.with.vanilson.cucumber")
 @ConfigurationParameter(key = FILTER_TAGS_PROPERTY_NAME, value = "@balance-check and @deposit")
 @IncludeEngines("cucumber")

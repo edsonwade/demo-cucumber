@@ -1,13 +1,14 @@
 package code.with.vanilson.cucumber.product;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * ProductService
@@ -39,12 +40,12 @@ public class ProductService {
                 .map(productMapper::mapToProductDto)
                 .orElseThrow(() -> new ProductNotFoundException("Product with id " + id + " not found")));
     }
-
-    public ProductDTO createProduct(Product product) {
+    @Async
+    public CompletableFuture<ProductDTO> createProduct(Product product) {
         try {
             var savedProduct = productRepository.save(product);
             log.info("Saved product {}", savedProduct);
-            return productMapper.mapToProductDto(savedProduct);
+            return CompletableFuture.completedFuture(productMapper.mapToProductDto(savedProduct));
         } catch (Exception e) {
             log.error("Error creating product: {}", e.getMessage(), e);
             throw e; // Re-throw or handle accordingly
@@ -73,6 +74,7 @@ public class ProductService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
+    @Async
     public void deleteProductById(int id) {
         var productDeleted = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException("Product with id " + id + " not found"));
