@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 /**
  * ProductController
@@ -58,8 +58,8 @@ public class ProductController {
      * @return a ResponseEntity containing the created ProductDTO
      */
     @PostMapping("/create-product")
-    public ResponseEntity<ProductDTO> createProduct(@RequestBody @Valid Product product) {
-        ProductDTO createdProduct = productService.createProduct(product);
+    public ResponseEntity<CompletableFuture<ProductDTO>> createProduct(@RequestBody @Valid Product product) {
+        CompletableFuture<ProductDTO> createdProduct = productService.createProduct(product);
         log.info("createProduct called");
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }

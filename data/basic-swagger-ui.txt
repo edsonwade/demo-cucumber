@@ -1,0 +1,9 @@
+http://localhost:8082/swagger-ui/index.html
+
+
+# add my swagger ui
+springdoc.swagger-ui.path=/product-api.html
+
+
+# actuator
+management.endpoints.web.exposure.include=*
